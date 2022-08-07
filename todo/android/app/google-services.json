@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "619114350122",
+    "project_id": "moderntodo-c1f02",
+    "storage_bucket": "moderntodo-c1f02.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619114350122:android:e735532ec527f38af52553",
+        "android_client_info": {
+          "package_name": "com.example.todo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619114350122-31litu4dbg912gmrgecfmldlunqlk11c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUaZYlZ3CtpfLGQOvuOB9jAGRVL_RbsfE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619114350122-31litu4dbg912gmrgecfmldlunqlk11c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
