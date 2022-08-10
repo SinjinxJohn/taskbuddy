@@ -22,7 +22,7 @@ class _textInfoState extends State<textInfo> {
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Colors.indigo,
+          backgroundColor: Color.fromRGBO(32, 42, 68, 1),
           title: Text(
             'Modern To-do',
             style: TextStyle(color: Colors.white),
@@ -64,7 +64,7 @@ class _textInfoState extends State<textInfo> {
                     decoration: BoxDecoration(
                         // border: Border.all(color: Colors.grey),
                         borderRadius: BorderRadius.circular(15),
-                        color: Colors.indigo),
+                        color: Color.fromRGBO(0, 35, 102, 1)),
                     padding: EdgeInsets.symmetric(horizontal: 150, vertical: 1),
                     child: TextButton(
                         onPressed: () {

@@ -17,15 +17,35 @@ class _HomePageState extends State<HomePage> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const textInfo()),
+          );
+        },
+        backgroundColor: Colors.pink,
+
+        // style: TextButton.styleFrom(
+        //   backgroundColor: Colors.red,
+        // ),
+        // child: Icon(
+        //   Icons.add,
+        // )
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 4),
+          child: Icon(Icons.add),
+        ),
+      ),
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.indigo,
+        backgroundColor: Color.fromRGBO(32, 42, 68, 1),
         title: Text(
           'Modern To-do',
           style: TextStyle(color: Colors.white),
         ),
       ),
-      backgroundColor: Colors.grey[100],
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
@@ -82,26 +102,46 @@ class _HomePageState extends State<HomePage> {
                             height: 65,
                             color: Colors.white,
                             child: Padding(
-                              padding: const EdgeInsets.all(3.0),
+                              padding: const EdgeInsets.all(7.0),
                               child: Container(
                                   decoration: BoxDecoration(
                                       boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.grey.withOpacity(0.5),
-                                            spreadRadius: 5,
-                                            blurRadius: 7,
-                                            offset: Offset(0, 3)),
+                                        // BoxShadow(
+                                        //     color: Colors.grey.withOpacity(0.5),
+                                        //     spreadRadius: 5,
+                                        //     blurRadius: 7,
+                                        //     offset: Offset(0, 3)),
                                       ],
-                                      border: Border.all(color: Colors.black),
+                                      border: Border.all(
+                                          color:
+                                              Color.fromRGBO(231, 246, 242, 1)),
                                       borderRadius: BorderRadius.circular(15),
-                                      color: Colors.indigo),
+                                      color: Color.fromRGBO(0, 35, 102, 1)),
                                   child: Center(
-                                    child: Text(
-                                      "${entries[index]}",
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.bold),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      // crossAxisAlignment:
+                                      //     CrossAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 25.0),
+                                          child: Text(
+                                            "${entries[index]}",
+                                            style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 18,
+                                                fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                        IconButton(
+                                            onPressed: () {},
+                                            icon: Icon(
+                                              Icons.delete,
+                                              color: Colors.red,
+                                            )),
+                                      ],
                                     ),
                                   )),
                             ),
@@ -110,23 +150,9 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
               ),
-              SizedBox(
-                height: 7,
-              ),
-              Center(
-                child: FloatingActionButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const textInfo()),
-                      );
-                    },
-                    backgroundColor: Colors.black,
-                    child: Icon(
-                      Icons.add,
-                    )),
-              ),
+              // SizedBox(
+              //   height: 10,
+              // ),
             ],
           ),
         ),
