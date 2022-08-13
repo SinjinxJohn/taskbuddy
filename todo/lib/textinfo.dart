@@ -69,6 +69,7 @@ class _textInfoState extends State<textInfo> {
                     child: TextButton(
                         onPressed: () {
                           _store.collection('task1').add({'tasks': input});
+
                           Navigator.pop(context);
                         },
                         child: Text(

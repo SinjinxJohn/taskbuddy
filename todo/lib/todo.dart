@@ -14,6 +14,9 @@ class _HomePageState extends State<HomePage> {
   final _auth = FirebaseAuth.instance;
 
   List<String> entries = <String>[];
+  deleteNote(id) {
+    FirebaseFirestore.instance.collection('task1').doc(id).delete();
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,14 +73,18 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               StreamBuilder<QuerySnapshot>(
-                stream: _store.collection('task1').snapshots(),
+                stream:
+                    FirebaseFirestore.instance.collection('task1').snapshots(),
                 builder: (context, snapshot) {
+                  // var tasks = snapshot.data.;
                   if (!snapshot.hasData) {
                     return Center(
-                      child: Text(
-                        "Great Job!! No tasks left",
-                        style: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.bold),
+                      child: Container(
+                        child: Text(
+                          "Great Job!! No tasks left",
+                          style: TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.bold),
+                        ),
                       ),
                     );
                   }
@@ -86,19 +93,20 @@ class _HomePageState extends State<HomePage> {
                   }
 
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return CircularProgressIndicator();
+                    return Center(child: CircularProgressIndicator());
                   }
-                  var tasks = snapshot.data!.docs;
 
-                  for (var task in tasks) {
+                  for (var task in snapshot.data!.docs) {
                     entries.add(task['tasks']);
                   }
 
                   return Expanded(
                     child: ListView.builder(
-                        itemCount: entries.length,
+                        itemCount: snapshot.data!.docs.length,
                         itemBuilder: (BuildContext context, int index) {
+                          // DocumentSnapshot ds = entries[index];
                           return Container(
+                            // key: Key("${index}"),
                             height: 65,
                             color: Colors.white,
                             child: Padding(
@@ -136,7 +144,15 @@ class _HomePageState extends State<HomePage> {
                                           ),
                                         ),
                                         IconButton(
-                                            onPressed: () {},
+                                            onPressed: () async {
+                                              await deleteNote(snapshot
+                                                  .data!.docs[index].id);
+
+                                              // _store
+                                              //     .collection('task1')
+                                              //     .doc('tasks').
+                                              // print("Delete");
+                                            },
                                             icon: Icon(
                                               Icons.delete,
                                               color: Colors.red,
