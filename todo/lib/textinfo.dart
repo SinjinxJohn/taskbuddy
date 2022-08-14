@@ -24,7 +24,7 @@ class _textInfoState extends State<textInfo> {
           centerTitle: true,
           backgroundColor: Color.fromRGBO(32, 42, 68, 1),
           title: Text(
-            'Task-Buddy',
+            'Task-Budday',
             style: TextStyle(color: Colors.white),
           ),
         ),
