@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
             MaterialPageRoute(builder: (context) => const textInfo()),
           );
         },
-        backgroundColor: Colors.pink,
+        backgroundColor: Colors.green,
 
         // style: TextButton.styleFrom(
         //   backgroundColor: Colors.red,
@@ -37,18 +37,21 @@ class _HomePageState extends State<HomePage> {
         // )
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 4),
-          child: Icon(Icons.add),
+          child: Icon(
+            Icons.add,
+            color: Colors.grey[100],
+          ),
         ),
       ),
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Color.fromRGBO(32, 42, 68, 1),
+        backgroundColor: Color.fromARGB(255, 8, 61, 39),
         title: Text(
-          'Modern To-do',
-          style: TextStyle(color: Colors.white),
+          'Task Buddy',
+          style: TextStyle(color: Colors.white, fontSize: 20),
         ),
       ),
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
@@ -66,9 +69,9 @@ class _HomePageState extends State<HomePage> {
                     fontSize: 18),
               ),
               SizedBox(
-                width: 132,
+                width: 137,
                 child: Divider(
-                  color: Colors.blue[900],
+                  color: Colors.green,
                   thickness: 2,
                 ),
               ),
@@ -76,6 +79,7 @@ class _HomePageState extends State<HomePage> {
                 stream:
                     FirebaseFirestore.instance.collection('task1').snapshots(),
                 builder: (context, snapshot) {
+                  entries = [];
                   // var tasks = snapshot.data.;
                   if (!snapshot.hasData) {
                     return Center(
@@ -99,16 +103,16 @@ class _HomePageState extends State<HomePage> {
                   for (var task in snapshot.data!.docs) {
                     entries.add(task['tasks']);
                   }
-
+                  print(entries);
                   return Expanded(
                     child: ListView.builder(
                         itemCount: snapshot.data!.docs.length,
-                        itemBuilder: (BuildContext context, int index) {
+                        itemBuilder: (context, int index) {
                           // DocumentSnapshot ds = entries[index];
                           return Container(
                             // key: Key("${index}"),
                             height: 65,
-                            color: Colors.white,
+                            color: Colors.grey[300],
                             child: Padding(
                               padding: const EdgeInsets.all(7.0),
                               child: Container(
@@ -120,11 +124,11 @@ class _HomePageState extends State<HomePage> {
                                         //     blurRadius: 7,
                                         //     offset: Offset(0, 3)),
                                       ],
-                                      border: Border.all(
-                                          color:
-                                              Color.fromRGBO(231, 246, 242, 1)),
-                                      borderRadius: BorderRadius.circular(15),
-                                      color: Color.fromRGBO(0, 35, 102, 1)),
+                                      // border: Border.all(
+                                      //     color: Color.fromARGB(
+                                      //         255, 115, 180, 152)),
+                                      borderRadius: BorderRadius.circular(8),
+                                      color: Color.fromARGB(255, 11, 70, 45)),
                                   child: Center(
                                     child: Row(
                                       mainAxisAlignment:

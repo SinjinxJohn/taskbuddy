@@ -22,13 +22,13 @@ class _textInfoState extends State<textInfo> {
       child: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Color.fromRGBO(32, 42, 68, 1),
+          backgroundColor: Color.fromARGB(255, 11, 70, 45),
           title: Text(
             'Task-Buddy',
             style: TextStyle(color: Colors.white),
           ),
         ),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey[300],
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
           child: Column(
@@ -45,9 +45,9 @@ class _textInfoState extends State<textInfo> {
               ),
               Container(
                 decoration: BoxDecoration(
-                    // border: Border.all(color: Colors.grey),
+                    border: Border.all(color: Colors.white),
                     borderRadius: BorderRadius.circular(8),
-                    color: Colors.grey[100]),
+                    color: Colors.grey[200]),
                 padding: EdgeInsets.only(left: 8),
                 child: TextField(
                     decoration: InputDecoration(
@@ -63,8 +63,8 @@ class _textInfoState extends State<textInfo> {
                 child: Container(
                     decoration: BoxDecoration(
                         // border: Border.all(color: Colors.grey),
-                        borderRadius: BorderRadius.circular(15),
-                        color: Color.fromRGBO(0, 35, 102, 1)),
+                        borderRadius: BorderRadius.circular(12),
+                        color: Color.fromARGB(255, 11, 70, 45)),
                     padding: EdgeInsets.symmetric(horizontal: 150, vertical: 1),
                     child: TextButton(
                         onPressed: () {
@@ -77,7 +77,7 @@ class _textInfoState extends State<textInfo> {
                           style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
-                              fontSize: 17),
+                              fontSize: 15),
                         ))),
               )
             ],
