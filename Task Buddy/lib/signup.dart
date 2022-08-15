@@ -35,7 +35,7 @@ class _SignUpState extends State<SignUp> {
           centerTitle: true,
           backgroundColor: Color.fromARGB(255, 11, 70, 45),
           title: Text(
-            'Task Budday',
+            'Task Buddy',
             style: TextStyle(color: Colors.white, fontSize: 20),
           ),
         ),
