@@ -17,11 +17,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        textTheme: TextTheme(bodyText1: GoogleFonts.openSans()),
-      ),
+      theme: ThemeData(fontFamily: 'Rubik'),
+      darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: HomePage(),
     );
   }
 }

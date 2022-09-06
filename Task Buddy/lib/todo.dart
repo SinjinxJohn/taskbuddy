@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:todo/textinfo.dart';
 
 class HomePage extends StatefulWidget {
@@ -13,10 +16,15 @@ class _HomePageState extends State<HomePage> {
   final _store = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
 
-  List<String> entries = <String>[];
+  List entries = [];
   deleteNote(id) {
     FirebaseFirestore.instance.collection('task1').doc(id).delete();
   }
+  // deleteNote2(id) {
+  //   FirebaseFirestore.instance.collection('task1').doc(id).delete();
+  // }
+
+  List date = [];
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +35,7 @@ class _HomePageState extends State<HomePage> {
             MaterialPageRoute(builder: (context) => const textInfo()),
           );
         },
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.purpleAccent,
 
         // style: TextButton.styleFrom(
         //   backgroundColor: Colors.red,
@@ -44,14 +52,15 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Color.fromARGB(255, 8, 61, 39),
+        centerTitle: false,
+        backgroundColor: Colors.purpleAccent,
         title: Text(
           'Task Buddy',
-          style: TextStyle(color: Colors.white, fontSize: 20),
+          style:
+              TextStyle(color: Colors.white, fontSize: 20, fontFamily: 'Rubik'),
         ),
       ),
-      backgroundColor: Colors.grey[300],
+      // backgroundColor: Colors.grey[300],
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
@@ -61,25 +70,33 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 5,
               ),
-              Text(
-                'TODAY\'S TASKS',
-                style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18),
-              ),
-              SizedBox(
-                width: 137,
-                child: Divider(
-                  color: Colors.green,
-                  thickness: 2,
+              Center(
+                child: Text(
+                  'TASK LIST',
+                  style: TextStyle(
+                      color: Colors.white,
+                      // fontWeight: FontWeight.bold,
+                      fontSize: 23,
+                      fontFamily: 'Rubik',
+                      fontFeatures: [FontFeature.historicalLigatures()]),
                 ),
+              ),
+              // SizedBox(
+              //   width: 137,
+              //   child: Divider(
+              //     color: Colors.green,
+              //     thickness: 2,
+              //   ),
+              // ),
+              SizedBox(
+                height: 10,
               ),
               StreamBuilder<QuerySnapshot>(
                 stream:
                     FirebaseFirestore.instance.collection('task1').snapshots(),
                 builder: (context, snapshot) {
                   entries = [];
+                  date = [];
                   // var tasks = snapshot.data.;
                   if (!snapshot.hasData) {
                     return Center(
@@ -87,7 +104,9 @@ class _HomePageState extends State<HomePage> {
                         child: Text(
                           "Great Job!! No tasks left",
                           style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold),
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Rubik'),
                         ),
                       ),
                     );
@@ -102,8 +121,14 @@ class _HomePageState extends State<HomePage> {
 
                   for (var task in snapshot.data!.docs) {
                     entries.add(task['tasks']);
+                    // DateTime date = task['Date'];
+                    String formattedDate =
+                        DateFormat('dd-MM-yyyy').format(task['Date'].toDate());
+
+                    date.add(formattedDate);
                   }
                   print(entries);
+                  print(date);
                   return Expanded(
                     child: ListView.builder(
                         itemCount: snapshot.data!.docs.length,
@@ -112,7 +137,7 @@ class _HomePageState extends State<HomePage> {
                           return Container(
                             // key: Key("${index}"),
                             height: 65,
-                            color: Colors.grey[300],
+                            // color: Colors.grey[300],
                             child: Padding(
                               padding: const EdgeInsets.all(7.0),
                               child: Container(
@@ -124,11 +149,9 @@ class _HomePageState extends State<HomePage> {
                                         //     blurRadius: 7,
                                         //     offset: Offset(0, 3)),
                                       ],
-                                      // border: Border.all(
-                                      //     color: Color.fromARGB(
-                                      //         255, 115, 180, 152)),
+                                      border: Border.all(color: Colors.purple),
                                       borderRadius: BorderRadius.circular(8),
-                                      color: Color.fromARGB(255, 11, 70, 45)),
+                                      color: Colors.black),
                                   child: Center(
                                     child: Row(
                                       mainAxisAlignment:
@@ -136,17 +159,25 @@ class _HomePageState extends State<HomePage> {
                                       // crossAxisAlignment:
                                       //     CrossAxisAlignment.center,
                                       children: [
+                                        // Text(_dateTime.toString()),
                                         Padding(
                                           padding:
-                                              const EdgeInsets.only(left: 25.0),
+                                              const EdgeInsets.only(left: 8.0),
                                           child: Text(
-                                            "${entries[index]}",
+                                            "${date[index]}",
                                             style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 18,
-                                                fontWeight: FontWeight.bold),
+                                                fontStyle: FontStyle.italic),
                                           ),
                                         ),
+
+                                        Text(
+                                          "${entries[index]}",
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontSize: 16,
+                                              fontFamily: 'Rubik'),
+                                        ),
+
                                         IconButton(
                                             onPressed: () async {
                                               await deleteNote(snapshot
@@ -159,7 +190,7 @@ class _HomePageState extends State<HomePage> {
                                             },
                                             icon: Icon(
                                               Icons.delete,
-                                              color: Colors.red,
+                                              color: Colors.white,
                                             )),
                                       ],
                                     ),

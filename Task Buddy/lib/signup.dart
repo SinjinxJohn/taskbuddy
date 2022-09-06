@@ -33,7 +33,7 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Color.fromARGB(255, 11, 70, 45),
+          backgroundColor: Color.fromARGB(255, 83, 52, 131),
           title: Text(
             'Task Buddy',
             style: TextStyle(color: Colors.white, fontSize: 20),
@@ -52,7 +52,7 @@ class _SignUpState extends State<SignUp> {
                         child: Icon(
                           Icons.android,
                           size: 300,
-                          color: Color.fromARGB(255, 11, 70, 45),
+                          color: Color.fromARGB(255, 83, 52, 131),
                         ),
                       ),
                       // SizedBox(
@@ -119,7 +119,7 @@ class _SignUpState extends State<SignUp> {
                           child: Container(
                             padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 11, 70, 45),
+                                color: Color.fromARGB(255, 83, 52, 131),
                                 borderRadius: BorderRadius.circular(12)),
                             child: Center(
                                 child: Text(
