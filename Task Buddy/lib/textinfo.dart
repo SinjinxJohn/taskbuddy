@@ -37,9 +37,10 @@ class _textInfoState extends State<textInfo> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
+      backgroundColor: Color.fromRGBO(230, 230, 250, 2),
       appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Colors.purple,
+        centerTitle: false,
+        backgroundColor: Color.fromARGB(255, 8, 46, 77),
         title: Text(
           'Task-Buddy',
           style: TextStyle(color: Colors.white, fontFamily: 'Rubik'),
@@ -52,9 +53,15 @@ class _textInfoState extends State<textInfo> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text("ADD A NEW TASK",
-                style: TextStyle(
-                    fontSize: 18, color: Colors.white, fontFamily: 'Rubik')),
+            Center(
+              child: Text("ADD A NEW TASK",
+                  style: TextStyle(
+                      fontSize: 18,
+                      color: Color.fromARGB(255, 1, 13, 24),
+                      fontFamily: 'Rubik',
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic)),
+            ),
             SizedBox(
               height: 20,
             ),
@@ -85,7 +92,10 @@ class _textInfoState extends State<textInfo> {
                       borderRadius: BorderRadius.circular(8),
                       color: Colors.black),
                   child: IconButton(
-                      icon: Icon(Icons.calendar_month),
+                      icon: Icon(
+                        Icons.calendar_month,
+                        color: Colors.white,
+                      ),
                       onPressed: _showDatePicker
                       // style: TextStyle(
                       //     color: Colors.white,

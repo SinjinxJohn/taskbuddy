@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
             MaterialPageRoute(builder: (context) => const textInfo()),
           );
         },
-        backgroundColor: Colors.purpleAccent,
+        backgroundColor: Color.fromARGB(255, 8, 46, 77),
 
         // style: TextButton.styleFrom(
         //   backgroundColor: Colors.red,
@@ -47,20 +47,20 @@ class _HomePageState extends State<HomePage> {
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 4),
           child: Icon(
             Icons.add,
-            color: Colors.grey[100],
+            color: Color.fromRGBO(230, 230, 250, 2),
           ),
         ),
       ),
       appBar: AppBar(
         centerTitle: false,
-        backgroundColor: Colors.purpleAccent,
+        backgroundColor: Color.fromARGB(255, 8, 46, 77),
         title: Text(
           'Task Buddy',
           style:
               TextStyle(color: Colors.white, fontSize: 20, fontFamily: 'Rubik'),
         ),
       ),
-      // backgroundColor: Colors.grey[300],
+      backgroundColor: Color.fromRGBO(230, 230, 250, 2),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
@@ -74,8 +74,9 @@ class _HomePageState extends State<HomePage> {
                 child: Text(
                   'TASK LIST',
                   style: TextStyle(
-                      color: Colors.white,
-                      // fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 1, 13, 24),
+                      fontWeight: FontWeight.bold,
+                      fontStyle: FontStyle.italic,
                       fontSize: 23,
                       fontFamily: 'Rubik',
                       fontFeatures: [FontFeature.historicalLigatures()]),
@@ -126,6 +127,7 @@ class _HomePageState extends State<HomePage> {
                         DateFormat('dd-MM-yyyy').format(task['Date'].toDate());
 
                     date.add(formattedDate);
+                    // date.sort();
                   }
                   print(entries);
                   print(date);
@@ -149,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                                         //     blurRadius: 7,
                                         //     offset: Offset(0, 3)),
                                       ],
-                                      border: Border.all(color: Colors.purple),
+                                      border: Border.all(color: Colors.white),
                                       borderRadius: BorderRadius.circular(8),
                                       color: Colors.black),
                                   child: Center(
@@ -166,7 +168,8 @@ class _HomePageState extends State<HomePage> {
                                           child: Text(
                                             "${date[index]}",
                                             style: TextStyle(
-                                                fontStyle: FontStyle.italic),
+                                                fontStyle: FontStyle.italic,
+                                                color: Colors.white),
                                           ),
                                         ),
 
@@ -174,7 +177,7 @@ class _HomePageState extends State<HomePage> {
                                           "${entries[index]}",
                                           style: TextStyle(
                                               color: Colors.white,
-                                              fontSize: 16,
+                                              fontSize: 17,
                                               fontFamily: 'Rubik'),
                                         ),
 

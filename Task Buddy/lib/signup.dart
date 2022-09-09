@@ -33,13 +33,14 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Color.fromARGB(255, 83, 52, 131),
+          backgroundColor: Colors.purpleAccent,
           title: Text(
             'Task Buddy',
-            style: TextStyle(color: Colors.white, fontSize: 20),
+            style: TextStyle(
+                color: Colors.white, fontSize: 20, fontFamily: 'Rubik'),
           ),
         ),
-        backgroundColor: Colors.grey[300],
+        // backgroundColor: Colors.grey[300],
         body: SafeArea(
           child: Padding(
               padding:
@@ -52,7 +53,7 @@ class _SignUpState extends State<SignUp> {
                         child: Icon(
                           Icons.android,
                           size: 300,
-                          color: Color.fromARGB(255, 83, 52, 131),
+                          color: Colors.white,
                         ),
                       ),
                       // SizedBox(
@@ -62,7 +63,8 @@ class _SignUpState extends State<SignUp> {
                           style: TextStyle(
                               fontSize: 30,
                               fontWeight: FontWeight.bold,
-                              color: Colors.black)),
+                              color: Colors.white,
+                              fontFamily: 'Rubik')),
                       SizedBox(
                         height: 20,
                       ),
@@ -70,12 +72,13 @@ class _SignUpState extends State<SignUp> {
                         padding: const EdgeInsets.symmetric(horizontal: 25.0),
                         child: Container(
                           decoration: BoxDecoration(
-                              color: Colors.grey[200],
+                              // color: Colors.grey[200],
                               border: Border.all(color: Colors.white),
                               borderRadius: BorderRadius.circular(12)),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 8.0),
                             child: TextField(
+                              style: TextStyle(fontStyle: FontStyle.italic),
                               controller: _emailController,
                               obscureText: false,
                               decoration: InputDecoration(
@@ -92,12 +95,13 @@ class _SignUpState extends State<SignUp> {
                         padding: const EdgeInsets.symmetric(horizontal: 25.0),
                         child: Container(
                           decoration: BoxDecoration(
-                              color: Colors.grey[200],
+                              // color: Colors.grey[200],
                               border: Border.all(color: Colors.white),
                               borderRadius: BorderRadius.circular(12)),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 8.0),
                             child: TextField(
+                              style: TextStyle(fontStyle: FontStyle.italic),
                               controller: _passwordController,
                               obscureText: true,
                               decoration: InputDecoration(
@@ -119,7 +123,8 @@ class _SignUpState extends State<SignUp> {
                           child: Container(
                             padding: const EdgeInsets.all(20),
                             decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 83, 52, 131),
+                                border: Border.all(color: Colors.white),
+                                color: Colors.black,
                                 borderRadius: BorderRadius.circular(12)),
                             child: Center(
                                 child: Text(
@@ -127,6 +132,7 @@ class _SignUpState extends State<SignUp> {
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
+                                fontFamily: 'Rubik',
                                 fontSize: 15,
                               ),
                             )),
@@ -141,13 +147,16 @@ class _SignUpState extends State<SignUp> {
                         children: [
                           Text(
                             'Not a member? ',
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Rubik'),
                           ),
                           Text(
                             'Register Now',
                             style: TextStyle(
                                 color: Colors.blue[900],
-                                fontWeight: FontWeight.bold),
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Rubik'),
                           )
                         ],
                       )

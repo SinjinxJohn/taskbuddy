@@ -21,13 +21,13 @@ class _LoginPageState extends State<LoginPage> {
   void navToHome() async {
     await Future.delayed(Duration(milliseconds: 2000), () {});
     Navigator.pushReplacement(
-        context, MaterialPageRoute(builder: (context) => SignUp()));
+        context, MaterialPageRoute(builder: (context) => HomePage()));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 83, 52, 131),
+      backgroundColor: Color.fromARGB(255, 8, 46, 77),
       body: Center(
         child: SafeArea(
           child: Column(
